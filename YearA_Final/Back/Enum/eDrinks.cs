@@ -10,6 +10,7 @@ namespace YearA_Final.Back.Enum
     {
         Water,
         Cola,
-        Milk
+        Milk,
+        Soda
     }
 }
