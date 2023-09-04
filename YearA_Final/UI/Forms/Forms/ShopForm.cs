@@ -149,5 +149,10 @@ namespace YearA_Final
             }
 
         }
+
+        private void dataGridCart_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("im Here");
+        }
     }
 }

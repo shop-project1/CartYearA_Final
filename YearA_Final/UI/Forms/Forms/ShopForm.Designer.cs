@@ -53,6 +53,7 @@
             this.dataGridCart.Name = "dataGridCart";
             this.dataGridCart.Size = new System.Drawing.Size(437, 400);
             this.dataGridCart.TabIndex = 1;
+            this.dataGridCart.MouseCaptureChanged += new System.EventHandler(this.dataGridCart_MouseCaptureChanged);
             // 
             // comboBoxByCatgeory
             // 
