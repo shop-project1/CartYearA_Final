@@ -130,6 +130,11 @@ namespace YearA_Final
         private void breadHandle()
         {
             panelAddUserControl.Controls.Clear();
+            BindingList<Bread> breadList = Cart.GetProductsByType<Bread>();
+            AddBread addBreadControl = new AddBread(breadList);
+            panelAddUserControl.Controls.Add(addBreadControl);
+            dataGridCart.DataSource = breadList;
+            dataGridCart.Refresh();
 
         }
 
