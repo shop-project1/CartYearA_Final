@@ -33,6 +33,8 @@
             this.comboBoxByCatgeory = new System.Windows.Forms.ComboBox();
             this.panelAddUserControl = new System.Windows.Forms.Panel();
             this.gridSaveButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTotalPrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +51,9 @@
             // 
             this.dataGridCart.AllowUserToAddRows = false;
             this.dataGridCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCart.Location = new System.Drawing.Point(350, 20);
+            this.dataGridCart.Location = new System.Drawing.Point(271, 20);
             this.dataGridCart.Name = "dataGridCart";
-            this.dataGridCart.Size = new System.Drawing.Size(437, 400);
+            this.dataGridCart.Size = new System.Drawing.Size(525, 410);
             this.dataGridCart.TabIndex = 1;
             this.dataGridCart.MouseCaptureChanged += new System.EventHandler(this.dataGridCart_MouseCaptureChanged);
             // 
@@ -74,7 +76,7 @@
             // 
             // gridSaveButton
             // 
-            this.gridSaveButton.Location = new System.Drawing.Point(706, 393);
+            this.gridSaveButton.Location = new System.Drawing.Point(716, 403);
             this.gridSaveButton.Name = "gridSaveButton";
             this.gridSaveButton.Size = new System.Drawing.Size(75, 23);
             this.gridSaveButton.TabIndex = 4;
@@ -82,11 +84,29 @@
             this.gridSaveButton.UseVisualStyleBackColor = true;
             this.gridSaveButton.Click += new System.EventHandler(this.gridSaveButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(276, 412);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Total:";
+            // 
+            // textBoxTotalPrice
+            // 
+            this.textBoxTotalPrice.Location = new System.Drawing.Point(314, 408);
+            this.textBoxTotalPrice.Name = "textBoxTotalPrice";
+            this.textBoxTotalPrice.Size = new System.Drawing.Size(40, 20);
+            this.textBoxTotalPrice.TabIndex = 6;
+            // 
             // ShopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxTotalPrice);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.gridSaveButton);
             this.Controls.Add(this.panelAddUserControl);
             this.Controls.Add(this.comboBoxByCatgeory);
@@ -97,6 +117,7 @@
             this.Load += new System.EventHandler(this.ShopForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -107,6 +128,8 @@
         private System.Windows.Forms.ComboBox comboBoxByCatgeory;
         private System.Windows.Forms.Panel panelAddUserControl;
         private System.Windows.Forms.Button gridSaveButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxTotalPrice;
     }
 }
 

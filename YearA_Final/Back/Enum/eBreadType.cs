@@ -8,6 +8,7 @@ using System.Threading.Tasks;
     {
         public enum eBreadType
         {
+            Choose,
             BlackBread,
             RyeBread,
             WholeWheatBread

@@ -111,7 +111,6 @@
             // 
             this.textBoxQuantity.Location = new System.Drawing.Point(135, 180);
             this.textBoxQuantity.Name = "textBoxQuantity";
-            this.textBoxQuantity.ReadOnly = true;
             this.textBoxQuantity.Size = new System.Drawing.Size(100, 20);
             this.textBoxQuantity.TabIndex = 9;
             this.textBoxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -133,6 +132,7 @@
             this.buttonAddBread.TabIndex = 11;
             this.buttonAddBread.Text = "Add";
             this.buttonAddBread.UseVisualStyleBackColor = true;
+            this.buttonAddBread.Click += new System.EventHandler(this.buttonAddBread_Click);
             // 
             // AddBread
             // 

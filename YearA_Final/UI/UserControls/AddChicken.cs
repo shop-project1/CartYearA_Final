@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using YearA_Final.Back;
+using YearA_Final.Back.Enum;
 using YearA_Final.Back.Model;
 using YearA_Final.UI.UserControls;
 
@@ -18,12 +19,17 @@ namespace YearA_Final.UI.UserControls
 {
     public partial class AddChicken : UserControl
     {
+        private ShopForm shopForm;
         private BindingList<Chicken> chickens;
-        public AddChicken(BindingList<Chicken> chickens)
+        public AddChicken(BindingList<Chicken> chickens, ShopForm shopForm)
         {
             InitializeComponent();
+            this.shopForm = shopForm;
             this.chickens = chickens;
-            comboBoxChickenType.DataSource = Enum.GetValues(typeof(eChickenType));
+            comboBoxChickenType.DataSource = Enum.GetValues(typeof(eChickenType))
+            .Cast<eChickenType>()
+            .Select(type => ChickenTypeExtantions.ToDisplayString(type))
+            .ToList();
         }
 
         public void buttonAddChicken_Click(object sender, EventArgs e)
@@ -55,12 +61,12 @@ namespace YearA_Final.UI.UserControls
                     default:
                         return;
                 }
-                Chicken chicken = new Chicken(chickenType.ToString(), timeNow.ToString("dd/MM/yy"), finalprice, 100 * quantity, chickenType.ToString());
+                Chicken chicken = new Chicken(ChickenTypeExtantions.ToDisplayString(chickenType), timeNow.ToString("dd/MM/yy"), finalprice, 100 * quantity, chickenType.ToString());
                 chicken.Quantity = quantity*100;
                 chicken.Cool = true;
-
                 Cart.AddProducts(chicken);
                 chickens.Add(chicken);
+                shopForm.UpdateTotalPrice();
             }
             catch (FormatException ex)
             {

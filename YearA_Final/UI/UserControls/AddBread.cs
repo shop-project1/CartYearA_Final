@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YearA_Final.Back;
 using YearA_Final.Back.Enum;
 using YearA_Final.Back.Model;
 
@@ -16,10 +17,12 @@ namespace YearA_Final.UI.UserControls
     public partial class AddBread : UserControl
     {
         private BindingList<Bread> breads;
-        public AddBread(BindingList<Bread> breads)
+        private ShopForm shopForm;
+        public AddBread(BindingList<Bread> breads, ShopForm shopForm)
         {
             InitializeComponent();
             this.breads = breads;
+            this.shopForm = shopForm;
             comboBoxBreadType.DataSource = Enum.GetValues(typeof(eBreadType))
             .Cast<eBreadType>()
             .Select(type => BreadTypeExtensions.ToDisplayString(type))
@@ -51,7 +54,7 @@ namespace YearA_Final.UI.UserControls
             timeNow = timeNow.AddDays(10);
             string formattedDate = timeNow.ToString("dd/MM/yy");
             textBoxExpDate.Text = formattedDate;
-            textBoxPrice.Text = "7.5 ₪";
+            textBoxPrice.Text = "7 ₪";
             textBoxCalories.Text = "298 Calories (100g)";
 
         }
@@ -61,8 +64,8 @@ namespace YearA_Final.UI.UserControls
             timeNow = timeNow.AddDays(25);
             string formattedDate = timeNow.ToString("dd/MM/yy");
             textBoxExpDate.Text = formattedDate;
-            textBoxPrice.Text = "19.80 ₪";
-            textBoxCalories.Text = "298 Calories (100g)";
+            textBoxPrice.Text = "19 ₪";
+            textBoxCalories.Text = "259 Calories (100g)";
         }
         private void handleWholeWheat()
         {
@@ -71,9 +74,52 @@ namespace YearA_Final.UI.UserControls
             timeNow = timeNow.AddMonths(2);
             string formattedDate = timeNow.ToString("dd/MM/yy");
             textBoxExpDate.Text = formattedDate;
-            textBoxPrice.Text = "25.90 ₪";
-            textBoxCalories.Text = "298 Calories (100g)";
+            textBoxPrice.Text = "25 ₪";
+            textBoxCalories.Text = "247 Calories (100g)";
 
+        }
+
+        private void buttonAddBread_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int quantity = Int32.Parse(textBoxQuantity.Text);
+                int finalprice;
+                DateTime timeNow = DateTime.Now;
+                int breadType;
+
+                switch ((eBreadType)comboBoxBreadType.SelectedIndex)
+                {
+                    case eBreadType.BlackBread:
+                        breadType = (int)eBreadType.BlackBread;
+                        finalprice = quantity * 7;
+                        timeNow = timeNow.AddDays(10);
+                        break;
+                    case eBreadType.RyeBread:
+                        breadType = (int)eBreadType.RyeBread;
+                        finalprice = quantity * 19;
+                        timeNow = timeNow.AddDays(2);
+                        timeNow = timeNow.AddMonths(2);
+                        break;
+                    case eBreadType.WholeWheatBread:
+                        breadType = (int)eBreadType.WholeWheatBread;
+                        finalprice = quantity * 25;
+                        timeNow = timeNow.AddDays(22);
+                        break;
+                    default:
+                        return;
+                }
+                Bread bread = new Bread (BreadTypeExtensions.ToDisplayString((eBreadType)comboBoxBreadType.SelectedIndex), timeNow.ToString("dd/MM/yy"), finalprice, 100 * quantity, breadType);
+                bread.Quantity = quantity;
+                Cart.AddProducts(bread);
+                breads.Add(bread);
+                shopForm.UpdateTotalPrice();
+                MessageBox.Show("Pay Attention, Cool for bread is on Cart.");
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid input. Please enter a valid quantity.");
+            }
         }
     }
 }

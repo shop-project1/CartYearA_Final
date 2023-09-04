@@ -80,7 +80,7 @@ namespace YearA_Final
             else if (comboBoxChooseProduct.SelectedIndex == (int)eCategory.Drinks)
                 {
                     int selectedDrinkType = (int)comboBoxByCatgeory.SelectedItem;
-                    AddDrinks addDrinksControl = new AddDrinks(Cart.GetProductsByType<Drinks>(), selectedDrinkType);
+                    AddDrinks addDrinksControl = new AddDrinks(Cart.GetProductsByType<Drinks>(), selectedDrinkType, this);
                     panelAddUserControl.Controls.Clear();
                     panelAddUserControl.Controls.Add(addDrinksControl);
                 }
@@ -107,7 +107,7 @@ namespace YearA_Final
             panelAddUserControl.Controls.Clear();
             BindingList<Drinks> drinksList = Cart.GetProductsByType<Drinks>();
             int selectedDrinkType = (int)comboBoxByCatgeory.SelectedItem;
-            AddDrinks addDrinksControl = new AddDrinks(drinksList, selectedDrinkType);
+            AddDrinks addDrinksControl = new AddDrinks(drinksList, selectedDrinkType, this);
             addDrinksControl.BringToFront();
             panelAddUserControl.Controls.Add(addDrinksControl);
             dataGridCart.DataSource = drinksList;
@@ -121,7 +121,7 @@ namespace YearA_Final
             panelAddUserControl.Controls.Clear();
             MessageBox.Show("Please pay attention, quantity in 100 Grams per unit.");
             BindingList<Chicken> chickenList = Cart.GetProductsByType<Chicken>();
-            AddChicken addChickenControl = new AddChicken(chickenList);
+            AddChicken addChickenControl = new AddChicken(chickenList, this);
             panelAddUserControl.Controls.Add(addChickenControl);
             dataGridCart.DataSource = chickenList;
             dataGridCart.Refresh();
@@ -131,7 +131,7 @@ namespace YearA_Final
         {
             panelAddUserControl.Controls.Clear();
             BindingList<Bread> breadList = Cart.GetProductsByType<Bread>();
-            AddBread addBreadControl = new AddBread(breadList);
+            AddBread addBreadControl = new AddBread(breadList, this);
             panelAddUserControl.Controls.Add(addBreadControl);
             dataGridCart.DataSource = breadList;
             dataGridCart.Refresh();
@@ -157,7 +157,50 @@ namespace YearA_Final
 
         private void dataGridCart_MouseCaptureChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("im Here");
+            //We are able to do like "Information Button" here, 
+            //when its clicked on item, we open an information bar with calccalories.
         }
+        private double CalculateTotalBreadPrice()
+        {
+            double totalBreadPrice = 0.0;
+
+            foreach (var bread in Cart.products.OfType<Bread>())
+            {
+                totalBreadPrice += bread.Price;
+            }
+
+            return totalBreadPrice;
+        }
+        private double CalculateTotalChickenPrice()
+        {
+            double totalChickenPrice = 0.0;
+
+            foreach (var chicken in Cart.products.OfType<Chicken>())
+            {
+                totalChickenPrice += chicken.Price;
+            }
+
+            return totalChickenPrice;
+        }
+        private double CalculateTotalDrinksPrice()
+        {
+            double totalDrinksPrice = 0.0;
+
+            foreach (var drinks in Cart.products.OfType<Drinks>())
+            {
+                totalDrinksPrice += drinks.Price;
+            }
+
+            return totalDrinksPrice;
+        }
+        public void UpdateTotalPrice()
+        {
+            double totalBreadPrice = CalculateTotalBreadPrice();
+            double totalChickenPrice = CalculateTotalChickenPrice();
+            double totalDrinksPrice = CalculateTotalDrinksPrice();
+            double totalPriceAll = totalBreadPrice + totalChickenPrice + totalDrinksPrice;
+            textBoxTotalPrice.Text = totalPriceAll.ToString();
+        }
+
     }
 }

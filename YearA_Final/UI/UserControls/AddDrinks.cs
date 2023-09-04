@@ -20,13 +20,15 @@ namespace YearA_Final.UI.UserControls
     {
         private BindingList<Drinks> drinks;
         private int selectedDrinkType;
+        private ShopForm shopForm;
 
-        public AddDrinks(BindingList<Drinks> drinks, int selectedDrinkType)
+        public AddDrinks(BindingList<Drinks> drinks, int selectedDrinkType, ShopForm shopForm)
         {
             InitializeComponent();
             this.drinks = drinks;
             this.selectedDrinkType = selectedDrinkType;
             InitializeUserControl();
+            this.shopForm = shopForm;
         }
 
         private void InitializeUserControl()
@@ -125,9 +127,9 @@ namespace YearA_Final.UI.UserControls
                 drink = new Drinks(drinkType, timeNow.ToString("dd/MM/yy"), finalprice, drinkType);
                 drink.Quantity = quantity;
                 drink.Cool = true;
-
                 Cart.AddProducts(drink);
                 drinks.Add(drink);
+                shopForm.UpdateTotalPrice();
             }
             catch (FormatException ex)
             {
