@@ -124,7 +124,7 @@ namespace YearA_Final.UI.UserControls
                         drinkType = "";
                         break;
                 }
-                drink = new Drinks(drinkType, timeNow.ToString("dd/MM/yy"), finalprice, drinkType);
+                drink = new Drinks(drinkType, timeNow.ToString("dd/MM/yy"), finalprice, drinkType, 500);
                 drink.Quantity = quantity;
                 drink.Cool = true;
                 Cart.AddProducts(drink);

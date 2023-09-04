@@ -11,8 +11,8 @@ namespace YearA_Final.Back.Model
     {
         public double FatPercentage { get; set; }
 
-        public Milk(string name, string expiryDate, double price, string type, double fatPercentage)
-            : base(name, expiryDate, price, type)
+        public Milk(string name, string expiryDate, double price, string type, double fatPercentage, int ml)
+            : base(name, expiryDate, price, type, ml)
         {
             FatPercentage = fatPercentage;
         }

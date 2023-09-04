@@ -11,11 +11,14 @@ namespace YearA_Final.Back.Model
     public class Drinks : Category
     {
         public  string Type { get; set; }
+        public int Ml {  get; set; }    
 
-        public Drinks(string name, string expiryDate, double price, string type)
+        public Drinks(string name, string expiryDate, double price, string type, int ml)
             : base(name, expiryDate, price)
         {           
             Type = type;
+            Ml = ml;
+
         }
         public override double CalcCalories()
         {

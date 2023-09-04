@@ -97,6 +97,7 @@
             // 
             this.textBoxTotalPrice.Location = new System.Drawing.Point(314, 408);
             this.textBoxTotalPrice.Name = "textBoxTotalPrice";
+            this.textBoxTotalPrice.ReadOnly = true;
             this.textBoxTotalPrice.Size = new System.Drawing.Size(40, 20);
             this.textBoxTotalPrice.TabIndex = 6;
             // 

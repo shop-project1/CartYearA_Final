@@ -13,7 +13,7 @@ namespace YearA_Final.Back.Model
     public bool IsCaffeinated { get; set; }
 
         public Cola(string name, string expiryDate, double price, int ml, string type, bool isDiet, bool isCaffeinated)
-                    : base(name, expiryDate, price, type)
+                    : base(name, expiryDate, price, type, ml)
         {
         IsDiet = isDiet;
         IsCaffeinated = isCaffeinated;
