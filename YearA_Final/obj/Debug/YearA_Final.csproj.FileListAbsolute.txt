@@ -36,3 +36,4 @@ C:\Users\Daniel\Documents\GitHub\DolevVersions\CartYearA_Final\YearA_Final\obj\D
 C:\Users\Daniel\Documents\GitHub\DolevVersions\CartYearA_Final\YearA_Final\obj\Debug\YearA_Final.pdb
 C:\Users\Daniel\Documents\GitHub\DolevVersions\CartYearA_Final\YearA_Final\obj\Debug\YearA_Final.UI.UserControls.AddDrinks.resources
 C:\Users\Daniel\Documents\GitHub\DolevVersions\CartYearA_Final\YearA_Final\obj\Debug\YearA_Final.UI.UserControls.AddBread.resources
+C:\Users\Daniel\Documents\GitHub\DolevVersions\CartYearA_Final\YearA_Final\obj\Debug\YearA_Final.UI.UserControls.AddChocolate.resources

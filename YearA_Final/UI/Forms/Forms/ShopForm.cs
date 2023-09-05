@@ -72,6 +72,9 @@ namespace YearA_Final
                     case "Chicken":
                         chickenHandle();
                         break;
+                    case "Chocolate":
+                        chocolateHandle();
+                        break;
                     default:
                         break;
 
@@ -138,6 +141,16 @@ namespace YearA_Final
 
         }
 
+        private void chocolateHandle()
+        {
+            panelAddUserControl.Controls.Clear();
+            BindingList<Chocolate> chocolateList = Cart.GetProductsByType<Chocolate>();
+            AddChocolate addChocolateControl = new AddChocolate(chocolateList, this);
+            panelAddUserControl.Controls.Add(addChocolateControl);
+            dataGridCart.DataSource = chocolateList;
+            dataGridCart.Refresh();
+
+        }
         private void ShopForm_Load(object sender, EventArgs e)
         {
             PopulateCartView();
@@ -193,12 +206,25 @@ namespace YearA_Final
 
             return totalDrinksPrice;
         }
+        private double CalculateTotalChocolatePrice()
+        {
+            double totalChocolatePrice = 0.0;
+
+            foreach (var chocolates in Cart.products.OfType<Chocolate>())
+            {
+                totalChocolatePrice += chocolates.Price;
+            }
+
+            return totalChocolatePrice;
+
+        }
         public void UpdateTotalPrice()
         {
             double totalBreadPrice = CalculateTotalBreadPrice();
             double totalChickenPrice = CalculateTotalChickenPrice();
             double totalDrinksPrice = CalculateTotalDrinksPrice();
-            double totalPriceAll = totalBreadPrice + totalChickenPrice + totalDrinksPrice;
+            double totalChocolatePrice = CalculateTotalChocolatePrice();
+            double totalPriceAll = totalBreadPrice + totalChickenPrice + totalDrinksPrice+totalChocolatePrice;
             textBoxTotalPrice.Text = totalPriceAll.ToString();
         }
 
