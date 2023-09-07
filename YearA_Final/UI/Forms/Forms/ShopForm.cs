@@ -158,7 +158,7 @@ namespace YearA_Final
 
         private void gridSaveButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(dataGridCart.DataSource);
+/*            Console.WriteLine(dataGridCart.DataSource);*/
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileInfo fileInfo = new FileInfo("Products.txt");
             using (FileStream fileStream = new FileStream("Products.txt", FileMode.Create))
@@ -224,7 +224,7 @@ namespace YearA_Final
             double totalChickenPrice = CalculateTotalChickenPrice();
             double totalDrinksPrice = CalculateTotalDrinksPrice();
             double totalChocolatePrice = CalculateTotalChocolatePrice();
-            double totalPriceAll = totalBreadPrice + totalChickenPrice + totalDrinksPrice+totalChocolatePrice;
+            double totalPriceAll = totalBreadPrice + totalChickenPrice + totalDrinksPrice + totalChocolatePrice;
             textBoxTotalPrice.Text = totalPriceAll.ToString();
         }
 

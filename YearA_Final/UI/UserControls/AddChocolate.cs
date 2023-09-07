@@ -85,6 +85,7 @@ namespace YearA_Final.UI.UserControls
             {
                 int quantity = Int32.Parse(textBoxQuantity.Text);
                 int finalprice;
+                double claories;
                 DateTime timeNow = DateTime.Now;
                 int chocolateType;
                 int fatPrecentage;
@@ -119,6 +120,8 @@ namespace YearA_Final.UI.UserControls
                 Cart.AddProducts(chocolate);
                 chocolates.Add(chocolate);
                 shopForm.UpdateTotalPrice();
+                claories = chocolate.CalcCalories();
+                MessageBox.Show("The number of calories for this product is: " + claories.ToString());
             }
             catch (FormatException ex)
             {

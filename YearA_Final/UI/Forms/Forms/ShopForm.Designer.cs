@@ -41,9 +41,10 @@
             // comboBoxChooseProduct
             // 
             this.comboBoxChooseProduct.FormattingEnabled = true;
-            this.comboBoxChooseProduct.Location = new System.Drawing.Point(15, 45);
+            this.comboBoxChooseProduct.Location = new System.Drawing.Point(22, 69);
+            this.comboBoxChooseProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxChooseProduct.Name = "comboBoxChooseProduct";
-            this.comboBoxChooseProduct.Size = new System.Drawing.Size(130, 21);
+            this.comboBoxChooseProduct.Size = new System.Drawing.Size(193, 28);
             this.comboBoxChooseProduct.TabIndex = 0;
             this.comboBoxChooseProduct.SelectedIndexChanged += new System.EventHandler(this.comboBoxChooseProduct_SelectedItemChanged);
             // 
@@ -51,34 +52,40 @@
             // 
             this.dataGridCart.AllowUserToAddRows = false;
             this.dataGridCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCart.Location = new System.Drawing.Point(271, 20);
+            this.dataGridCart.Location = new System.Drawing.Point(406, 31);
+            this.dataGridCart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridCart.Name = "dataGridCart";
-            this.dataGridCart.Size = new System.Drawing.Size(525, 410);
+            this.dataGridCart.RowHeadersWidth = 62;
+            this.dataGridCart.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dataGridCart.Size = new System.Drawing.Size(788, 631);
             this.dataGridCart.TabIndex = 1;
             this.dataGridCart.MouseCaptureChanged += new System.EventHandler(this.dataGridCart_MouseCaptureChanged);
             // 
             // comboBoxByCatgeory
             // 
             this.comboBoxByCatgeory.FormattingEnabled = true;
-            this.comboBoxByCatgeory.Location = new System.Drawing.Point(15, 90);
+            this.comboBoxByCatgeory.Location = new System.Drawing.Point(22, 138);
+            this.comboBoxByCatgeory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxByCatgeory.Name = "comboBoxByCatgeory";
-            this.comboBoxByCatgeory.Size = new System.Drawing.Size(130, 21);
+            this.comboBoxByCatgeory.Size = new System.Drawing.Size(193, 28);
             this.comboBoxByCatgeory.TabIndex = 2;
             this.comboBoxByCatgeory.Visible = false;
             this.comboBoxByCatgeory.SelectedIndexChanged += new System.EventHandler(this.comboBoxByCatgeory_SelectedIndexChanged);
             // 
             // panelAddUserControl
             // 
-            this.panelAddUserControl.Location = new System.Drawing.Point(15, 130);
+            this.panelAddUserControl.Location = new System.Drawing.Point(22, 200);
+            this.panelAddUserControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelAddUserControl.Name = "panelAddUserControl";
-            this.panelAddUserControl.Size = new System.Drawing.Size(250, 300);
+            this.panelAddUserControl.Size = new System.Drawing.Size(375, 462);
             this.panelAddUserControl.TabIndex = 3;
             // 
             // gridSaveButton
             // 
-            this.gridSaveButton.Location = new System.Drawing.Point(716, 403);
+            this.gridSaveButton.Location = new System.Drawing.Point(1074, 620);
+            this.gridSaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gridSaveButton.Name = "gridSaveButton";
-            this.gridSaveButton.Size = new System.Drawing.Size(75, 23);
+            this.gridSaveButton.Size = new System.Drawing.Size(112, 35);
             this.gridSaveButton.TabIndex = 4;
             this.gridSaveButton.Text = "Save";
             this.gridSaveButton.UseVisualStyleBackColor = true;
@@ -87,25 +94,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(276, 412);
+            this.label1.Location = new System.Drawing.Point(414, 634);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Total:";
             // 
             // textBoxTotalPrice
             // 
-            this.textBoxTotalPrice.Location = new System.Drawing.Point(314, 408);
+            this.textBoxTotalPrice.Location = new System.Drawing.Point(471, 628);
+            this.textBoxTotalPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxTotalPrice.Name = "textBoxTotalPrice";
             this.textBoxTotalPrice.ReadOnly = true;
-            this.textBoxTotalPrice.Size = new System.Drawing.Size(40, 20);
+            this.textBoxTotalPrice.Size = new System.Drawing.Size(58, 26);
             this.textBoxTotalPrice.TabIndex = 6;
             // 
             // ShopForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.textBoxTotalPrice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gridSaveButton);
@@ -113,6 +122,7 @@
             this.Controls.Add(this.comboBoxByCatgeory);
             this.Controls.Add(this.dataGridCart);
             this.Controls.Add(this.comboBoxChooseProduct);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ShopForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ShopForm_Load);

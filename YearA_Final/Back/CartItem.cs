@@ -11,6 +11,8 @@ public class CartItem
     public bool Cool { get; set; }
     public int Quantity { get; set; }
     public string ExpiryDate { get; set; }
+    public int Calories { get; set; }
+
     private List<CartItem> cartItems = new List<CartItem>();
 }
 

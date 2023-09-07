@@ -38,6 +38,7 @@ namespace YearA_Final.UI.UserControls
             {
                 int quantity = Int32.Parse(textBoxQuantity.Text);
                 int finalprice;
+                double claories;
                 DateTime timeNow = DateTime.Now;
                 eChickenType chickenType;
 
@@ -67,6 +68,8 @@ namespace YearA_Final.UI.UserControls
                 Cart.AddProducts(chicken);
                 chickens.Add(chicken);
                 shopForm.UpdateTotalPrice();
+                claories = chicken.CalcCalories();
+                MessageBox.Show("The number of calories for this product is: " + claories.ToString());
             }
             catch (FormatException ex)
             {
@@ -99,7 +102,7 @@ namespace YearA_Final.UI.UserControls
             string formattedDate = timeNow.ToString("dd/MM/yy");
             textBoxExpDate.Text = formattedDate;
             textBoxPrice.Text = "45 ₪ (100g)";
-            textBoxCalories.Text = "168 Calories (100g)";
+            textBoxCalories.Text = "165 Calories (100g)";
 
         }
         private void handleChickenWings()

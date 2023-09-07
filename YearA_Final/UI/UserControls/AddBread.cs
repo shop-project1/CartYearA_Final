@@ -44,9 +44,7 @@ namespace YearA_Final.UI.UserControls
                     break;
                 default:
                     break;
-
             }
-
         }
         private void handleBlackBread()
         {
@@ -76,14 +74,14 @@ namespace YearA_Final.UI.UserControls
             textBoxExpDate.Text = formattedDate;
             textBoxPrice.Text = "25 ₪";
             textBoxCalories.Text = "247 Calories (100g)";
-
         }
-
         private void buttonAddBread_Click(object sender, EventArgs e)
         {
+
             try
             {
                 int quantity = Int32.Parse(textBoxQuantity.Text);
+                double claories;  
                 int finalprice;
                 DateTime timeNow = DateTime.Now;
                 int breadType;
@@ -109,12 +107,15 @@ namespace YearA_Final.UI.UserControls
                     default:
                         return;
                 }
-                Bread bread = new Bread (BreadTypeExtensions.ToDisplayString((eBreadType)comboBoxBreadType.SelectedIndex), timeNow.ToString("dd/MM/yy"), finalprice, 100 * quantity, breadType);
+                Bread bread = new Bread (BreadTypeExtensions.ToDisplayString((eBreadType)comboBoxBreadType.SelectedIndex), timeNow.ToString("dd/MM/yy"), finalprice, quantity, breadType);
                 bread.Quantity = quantity;
                 Cart.AddProducts(bread);
                 breads.Add(bread);
                 shopForm.UpdateTotalPrice();
-                MessageBox.Show("Pay Attention, Cool for bread is on Cart.");
+                //here comes the call for updatetotalcalories.
+                /*                MessageBox.Show("Pay Attention, Cool for bread is on Cart.");*/
+                claories = bread.CalcCalories();
+                MessageBox.Show("The number of calories for this product is: " + claories.ToString());
             }
             catch (FormatException ex)
             {
